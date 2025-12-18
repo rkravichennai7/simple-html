@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Professional business page template" />
+  <title>Company Name | Professional Services</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a2e;
+      --text:#e7edf7;
+      --muted:#b7c2d6;
+      --line:rgba(255,255,255,.12);
+      --accent:#4f8cff;
+      --accent2:#22c55e;
+      --shadow:0 16px 48px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(79,140,255,.22), transparent 60%),
+        radial-gradient(900px 450px at 85% 15%, rgba(34,197,94,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg), #070b14 80%);
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    .nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(7,11,20,.85), rgba(7,11,20,.55));
+      border-bottom:1px solid var(--line);
+    }
+    .nav .row{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:14px 24px; max-width:var(--max); margin:0 auto;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, var(--accent), rgba(79,140,255,.35));
+      box-shadow: 0 10px 24px rgba(79,140,255,.25);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .menu{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+    .menu a{color:var(--muted); font-weight:600}
+    .menu a:hover{color:var(--text)}
+    .cta{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), rgba(79,140,255,.7));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 14px 30px rgba(79,140,255,.18);
+      font-weight:700;
+    }
+    .cta:hover{filter:brightness(1.08)}
+    .hero{padding:54px 24px 10px}
+    .hero .grid{
+      display:grid; gap:24px;
+      grid-template-columns: 1.2fr .8fr;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero .grid{grid-template-columns:1fr}
+      .menu{display:none}
+    }
+    .headline{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,26,46,.75), rgba(15,26,46,.35));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px;
+      overflow:hidden;
+      position:relative;
+    }
+    .headline:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(800px 240px at 30% 10%, rgba(79,140,255,.25), transparent 60%);
+      pointer-events:none;
+    }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:7px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-weight:700; font-size:12px;
+      position:relative;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background: var(--accent2);
+      box-shadow: 0 0 0 6px rgba(34,197,94,.18);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(28px, 3.8vw, 44px);
+      line-height:1.1;
+      position:relative;
+    }
+    p{margin:0; color:var(--muted); line-height:1.6; position:relative}
+    .actions{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; position:relative}
+    .btn{
+      display:inline-flex; gap:10px; align-items:center; justify-content:center;
+      padding:12px 14px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      font-weight:800;
+    }
+    .btn:hover{background: rgba(255,255,255,.09)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--accent), rgba(79,140,255,.65));
+      box-shadow: 0 18px 34px rgba(79,140,255,.18);
+    }
+    .stats{
+      display:grid; gap:12px;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top:18px;
+    }
+    .stat{
+      padding:14px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .stat b{display:block; font-size:18px}
+    .stat span{color:var(--muted); font-weight:600; font-size:12px}
+    .side{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,26,46,.65), rgba(15,26,46,.3));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    .side h3{margin:0 0 10px; font-size:16px}
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding:14px;
+      margin-top:12px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-weight:800;
+      font-size:12px;
+    }
+    .section{padding:26px 24px}
+    .section .title{
+      display:flex; align-items:end; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      max-width:var(--max); margin:0 auto 14px;
+    }
+    .section h2{margin:0; font-size:22px}
+    .section small{color:var(--muted); font-weight:600}
+    .cards{
+      max-width:var(--max); margin:0 auto;
+      display:grid; gap:14px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 980px){ .cards{grid-template-columns:1fr} }
+    .service{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 14px 30px rgba(0,0,0,.22);
+    }
+    .service h3{margin:10px 0 6px}
+    .service p{font-size:14px}
+    .icon{
+      width:40px; height:40px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
+      background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900;
+    }
+    .two{
+      max-width:var(--max); margin:0 auto;
+      display:grid; gap:14px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 980px){ .two{grid-template-columns:1fr} }
+    .panel{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 14px 30px rgba(0,0,0,.22);
+    }
+    .panel ul{margin:12px 0 0; padding-left:18px; color:var(--muted); line-height:1.75}
+    .footer{
+      padding:24px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      text-align:center;
+    }
+    .contact-grid{
+      display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:12px;
+    }
+    @media (max-width: 700px){ .contact-grid{grid-template-columns:1fr} }
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.15);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .note{font-size:12px; color:var(--muted); margin-top:10px}
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="row">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>Company Name</div>
+      </div>
+
+      <nav class="menu" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="cta" href="#contact">Get a Quote</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="grid">
+        <div class="headline">
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> Trusted Partner for Results</div>
+          <h1>Professional Services that help you deliver faster, safer, and smarter.</h1>
+          <p>
+            We provide reliable solutions with a focus on quality, timelines, and clear communication.
+            Replace this text with your company’s value proposition.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="#contact">Request a Callback</a>
+            <a class="btn" href="#services">View Services</a>
+          </div>
+
+          <div class="stats" role="list" aria-label="Highlights">
+            <div class="stat" role="listitem">
+              <b>10+ Years</b><span>Industry Experience</span>
+            </div>
+            <div class="stat" role="listitem">
+              <b>200+ Projects</b><span>Delivered Successfully</span>
+            </div>
+            <div class="stat" role="listitem">
+              <b>24/7 Support</b><span>On Critical Work</span>
+            </div>
+            <div class="stat" role="listitem">
+              <b>99.9% Uptime</b><span>Operational Reliability</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="side">
+          <h3>Why choose us</h3>
+          <p>Clear scope, strong delivery discipline, and measurable outcomes.</p>
+
+          <div class="card">
+            <div class="badge">Fast Response</div>
+            <p style="margin-top:10px">We respond quickly with realistic timelines and transparent estimates.</p>
+          </div>
+
+          <div class="card">
+            <div class="badge">Secure by Design</div>
+            <p style="margin-top:10px">Best practices for security, privacy, and compliance built-in.</p>
+          </div>
+
+          <div class="card">
+            <div class="badge">Quality Assurance</div>
+            <p style="margin-top:10px">Structured reviews, testing, and documentation for maintainability.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="title">
+      <h2>Services</h2>
+      <small>Replace with your offerings</small>
+    </div>
+
+    <div class="cards">
+      <div class="service">
+        <div class="icon">01</div>
+        <h3>Consulting</h3>
+        <p>Strategy, architecture, and delivery planning to reduce risk and increase speed.</p>
+      </div>
+
+      <div class="service">
+        <div class="icon">02</div>
+        <h3>Implementation</h3>
+        <p>End-to-end execution with clean handover, documentation, and support.</p>
+      </div>
+
+      <div class="service">
+        <div class="icon">03</div>
+        <h3>Operations</h3>
+        <p>Monitoring, incident response, and continuous optimization for reliability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT + PROCESS -->
+  <section class="section" id="about">
+    <div class="title">
+      <h2>About</h2>
+      <small>Who we are and how we work</small>
+    </div>
+
+    <div class="two">
+      <div class="panel">
+        <h3>Company Overview</h3>
+        <p>
+          Add a short overview of your organization, the industries you serve, and the outcomes you deliver.
+          Keep it crisp and business-focused.
+        </p>
+        <ul>
+          <li>Outcome-driven approach</li>
+          <li>Clear communication and reporting</li>
+          <li>Professional documentation</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3>Delivery Process</h3>
+        <p>Simple, predictable workflow from requirement to delivery.</p>
+        <ul>
+          <li>Discovery: scope, constraints, success metrics</li>
+          <li>Design: architecture and implementation plan</li>
+          <li>Build: development with checkpoints</li>
+          <li>Launch: handover, training, and support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="title">
+      <h2>Contact</h2>
+      <small>We usually respond within 24 hours</small>
+    </div>
+
+    <div class="two">
+      <div class="panel">
+        <h3>Contact Details</h3>
+        <p>
+          <b>Email:</b> yourname@company.com<br />
+          <b>Phone:</b> +91-XXXXXXXXXX<br />
+          <b>Location:</b> City, Country
+        </p>
+
+        <p class="note">
+          Tip: If you want this form to actually send emails, connect it to a backend (Node/Python) or services like Formspree.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Send a Message</h3>
+        <form onsubmit="event.preventDefault(); alert('Demo form: connect to backend to submit.');">
+          <div class="contact-grid">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div style="margin-top:12px">
+            <input type="text" name="subject" placeholder="Subject" />
+          </div>
+          <div style="margin-top:12px">
+            <textarea name="message" placeholder="Write your message..." required></textarea>
+          </div>
+          <div style="margin-top:12px">
+            <button class="btn primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © <span id="year"></span> Company Name. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
